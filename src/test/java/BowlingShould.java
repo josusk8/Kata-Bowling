@@ -25,8 +25,8 @@ public class BowlingShould {
     public void have_strike_roll() {
         var bowling = new Bowling();
 
-        var results = bowling.rolls(List.of("x"));
+        bowling.rolls(List.of("x"));
 
-        assertThat(results).isEqualTo(10);
+        assertThat(bowling.result()).isEqualTo(10);
     }
 }

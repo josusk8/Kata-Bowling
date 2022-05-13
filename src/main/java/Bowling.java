@@ -1,7 +1,16 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Bowling {
-    public int rolls(List<String> rolls) {
-        return (rolls.get(0).equals("x")) ? 10 : 0;
+    private List<Integer> results = new ArrayList<>();
+    private final int strike = 10;
+    private final int missAll = 0;
+
+    public void rolls(List<String> rolls) {
+        results.add((rolls.get(0).equals("x")) ? strike : missAll);
+    }
+
+    public int result() {
+        return results.stream().mapToInt(score -> score).sum();
     }
 }
