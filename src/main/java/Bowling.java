@@ -7,7 +7,17 @@ public class Bowling {
     private final int missAll = 0;
 
     public void rolls(List<String> rolls) {
-        results.add((rolls.get(0).equals("x")) ? strike : missAll);
+        var score = 0;
+        for (var roll : rolls) {
+            if (roll.equals("x")) {
+                score = strike;
+            } else if (roll.equals("-")) {
+                score = missAll;
+            } else {
+                score = Integer.parseInt(roll);
+            }
+            results.add(score);
+        }
     }
 
     public int result() {
