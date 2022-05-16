@@ -2,25 +2,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Bowling {
-    private List<Integer> results = new ArrayList<>();
-    private final int strike = 10;
-    private final int missAll = 0;
+    public void rolls(List<String> gameScore) {
+        for (var roll : gameScore) {
+            saveScore(roll);
+        }
+    }
 
-    public void rolls(List<String> rolls) {
-        var score = 0;
-        for (var roll : rolls) {
-            if (roll.equals("x")) {
-                score = strike;
-            } else if (roll.equals("-")) {
-                score = missAll;
-            } else {
-                score = Integer.parseInt(roll);
-            }
-            results.add(score);
+    private List<Integer> finalScore = new ArrayList<>();
+    private final int strike = 10;
+    private final int miss = 0;
+
+    private void saveScore(String roll) {
+        switch (roll) {
+            case "x" -> finalScore.add(strike);
+            case "-" -> finalScore.add(miss);
+            default -> finalScore.add(Integer.parseInt(roll));
         }
     }
 
     public int result() {
-        return results.stream().mapToInt(score -> score).sum();
+        return finalScore.stream().mapToInt(score -> score).sum();
     }
 }
