@@ -14,7 +14,7 @@ public class BowlingShould {
 
     /*TODO
      * ["x"]=> 10 DONE
-     * ["9","-"]=> 9
+     * ["9","-"]=> 9 DONE
      * ["5","/"]=> 10
      * ["-","5",""]=> 5
      * ["1","/","7"]=> 17
@@ -31,10 +31,10 @@ public class BowlingShould {
     }
 
     @Test
-    public void have_spare_roll() {
+    public void have_fails_to_knock_down_all_pins_in_second_try() {
         var bowling = new Bowling();
 
-        bowling.rolls(List.of("9","-"));
+        bowling.rolls(List.of("9", "-"));
 
         assertThat(bowling.result()).isEqualTo(9);
     }
