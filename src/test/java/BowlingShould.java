@@ -13,12 +13,12 @@ public class BowlingShould {
     */
 
     /*TODO
-     * ["x"]=> 10
-     * ["9;-"]=> 9
-     * ["5;/"]=> 10
-     * ["-";"5";""]=> 5
-     * ["1";"/";"7"]=> 17
-     * ["X";"X";"9"]=> 29
+     * ["x"]=> 10 DONE
+     * ["9","-"]=> 9
+     * ["5","/"]=> 10
+     * ["-","5",""]=> 5
+     * ["1","/","7"]=> 17
+     * ["X","X","9"]=> 29
      * */
 
     @Test
@@ -28,5 +28,14 @@ public class BowlingShould {
         bowling.rolls(List.of("x"));
 
         assertThat(bowling.result()).isEqualTo(10);
+    }
+
+    @Test
+    public void have_spare_roll() {
+        var bowling = new Bowling();
+
+        bowling.rolls(List.of("9","-"));
+
+        assertThat(bowling.result()).isEqualTo(9);
     }
 }
